@@ -20,8 +20,22 @@ public class CookieClient{
         Reader reader = new InputStreamReader(is);
         BufferedReader br = new BufferedReader(reader);
 
-        String messageFromServer = br.readLine();
-        System.out.println("The message from the server is " + messageFromServer);
+        Console console = System.console();
+        String keyboardInput = console.readLine("either type get-cookie to get message, or close to close app.");
+        bw.write(keyboardInput + "\n");
+        bw.flush();
+        System.out.println("your message following message was sent: " + keyboardInput);
+
+        while(!keyboardInput.contains("close")){
+            String messageFromServer = br.readLine();
+            System.out.println("The message from the server is " + messageFromServer);
+        }
+        
+
+
+
+
+        
 
         
     }
