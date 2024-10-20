@@ -1,19 +1,23 @@
 package day6ws;
 import java.io.*;
 import java.net.*;
-import day6ws.*;
+import day6ws.Cookie3;
 
 
 
-public class ClientHandler implements Runnable{
+public class ClientHandler2 implements Runnable{
     private Socket socket;
+    public Cookie3 cookie = new Cookie3();
 
-    public ClientHandler(Socket socket){
+    public ClientHandler2(Socket socket){
         this.socket = socket;
     }
 
     public void run() {
         String clientInput = "";
+        while (!clientInput.contains("close server")) {
+            
+        
         try {
 
             if(socket.isConnected()){
@@ -35,7 +39,6 @@ public class ClientHandler implements Runnable{
     
                 clientInput = br.readLine();
                 System.out.println("input received:" + clientInput);
-                Cookie cookie = new Cookie();
     
                 
     
@@ -50,7 +53,7 @@ public class ClientHandler implements Runnable{
                 if(clientInput.contains("close")){
                     bw.write("You have closed the server, server going offline. BYEEEE \n");
                     bw.flush();
-                    System.exit(1);
+                    break;
                 }
     
                 
@@ -62,9 +65,8 @@ public class ClientHandler implements Runnable{
             // TODO: handle exception
             System.err.println("IO Exception i think");
         }
+    }
         
-
-
 
 
 

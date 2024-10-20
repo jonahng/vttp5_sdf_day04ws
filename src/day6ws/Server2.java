@@ -5,9 +5,9 @@ import java.net.Socket;
 import java.io.*;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import day6ws.ClientHandler;
+import day6ws.ClientHandler2;
 
-public class Server {
+public class Server2 {
 
     public static void main(String[] args) throws IOException{
         int port = 12345;
@@ -18,10 +18,10 @@ public class Server {
         
 
 
-        ExecutorService executor = Executors.newFixedThreadPool(3);
+        ExecutorService executor = Executors.newFixedThreadPool(2);
         while (true) {
             Socket socket = server.accept();
-            ClientHandler clientHandler = new ClientHandler(socket);
+            ClientHandler2 clientHandler = new ClientHandler2(socket);
             executor.submit(clientHandler);
 
             

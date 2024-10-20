@@ -5,7 +5,7 @@ import java.util.*;
 import java.io.*;
 
 
-public class CookieClient{
+public class CookieClient2{
 
     public static void main(String[] args) throws IOException {
         Socket socket = new Socket("localhost",12345);

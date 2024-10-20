@@ -5,7 +5,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;
 
-public class Cookie {
+public class Cookie3 {
     public String getCookieText() throws IOException{
         Random random = new Random();
 
